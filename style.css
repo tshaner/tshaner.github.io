@@ -1,9 +1,10 @@
- <style>
+  <style>
         body {
-            font: 15px/1.5 ;
-            background-color:white;
-            color:#807c78;
-            background-image:('../img/https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/607680/05ea862788d01aa9725da675f3b19a4633993c3b.jpg');
+            background-image:url(https://cdna.artstation.com/p/assets/images/images/007/553/924/large/fizzy-muhamx-vintage-ice-cream-tile.jpg?1506949999);
+            background-attachment:fixed;
+            background-position: center;
+            background-repeat:no-repeat;
+            background-size: cover;
         }
         .container {
             width:80%;
@@ -11,13 +12,19 @@
             overflow:hidden;
         }
         header {
-            background-color:#e3ded3;
+            background-image:url(https://cdna.artstation.com/p/assets/images/images/007/553/924/large/fizzy-muhamx-vintage-ice-cream-tile.jpg?1506949999);
+            background-attachment:fixed;
+            background-position: center;
+            background-repeat:no-repeat;
+            background-size: cover;
+        
+        background-color: red;
             padding-top:30px;
             min-height:70px;
             border-bottom:#63635d 10px solid;
         }
         header a {
-            color:#807c78;
+            color: red;
             text-decoration:none;
             text-transform: uppercase;
             font-size: 16px;
@@ -34,7 +41,7 @@
         header #branding {
             float:left;
         }
-        header #branding h1 {
+        header #:#80branding h1 {
             margin:0;
         }
         header nav {
@@ -46,12 +53,12 @@
             color:#63635d;
         }
         header a:hover {
-            color:#807c78;
+            color:red;
             font-weight:bold 10px;
         }
         #showcase {
             min-height:400px;
-            background:url('../img/https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/607680/05ea862788d01aa9725da675f3b19a4633993c3b.jpg') no-repeat;
+            
         }
         #showcase {
             margin-top:100px;
