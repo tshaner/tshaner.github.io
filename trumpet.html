@@ -14,60 +14,124 @@
     
     <script type="text/processing">
     
-      Ball[] ball;
+   PImage bg, sheep, topFence, botFence ;
+int bgx, bgy, kx, ky, g, Vky;
+int[] pipeX, pipeY; //Declare two arrays
+int gameState, score;
+void setup()
+{
+  size(800,600);
+  bg = loadImage("Documents/Processing/img/bg.png");
+  sheep = loadImage("Documents/Processing/img/sheep.png");
+  botFence = loadImage("Documents/Processing/img/botFence.png");
+  topFence = loadImage("Documents/Processing/img/topFence.png");
+  kx = 100;
+  ky = 50;
+  g = 1; //gravity
+  pipeX = new int[5]; //[0,0,0,0]
+  pipeY = new int[pipeX.length];
+  //populate the array with values
+  for (int i =0; i < pipeX.length; i++)
+  {
+   pipeX[i] = width + 200*i;
+   pipeY[i] = (int)random(-350, 0);
+  }
+  gameState = -1;
+}
 
-      void setup(){
-        size(700, 600);
-        frameRate(100);
-        ball = new Ball[100];
-        for(int i = 0; i < ball.length; i++){
-            ball[i] = new Ball();
-        }
+void draw()
+{
+  if (gameState == -1)
+  {
+   startScreen(); 
+  }
+  else if(gameState==0)
+  {
+    setBg(); 
+    setPipes();
+    sheep();
+    score();
+  }
+  else
+  {
+    text("YOU LOSE", 20,100);
+  }
+}
+
+void score()
+{
+  fill(0);
+ textSize(32);
+ text("Score: " + score, width - 170, 40); 
+}
+
+void startScreen()
+{
+  image(bg, 0,0);
+  textSize(40);
+  text("Welcome to Flappy Sheep!", 40, 100);
+  text("Click the mouse to begin...", 40, 200);
+  if(mousePressed)
+  {
+    ky = height/2;
+    gameState = 0;
+  }
+}
+void setPipes()
+{
+  for (int i =0; i < pipeX.length; i++)
+  {
+  image(botFence, pipeX[i], pipeY[i]);
+  image(topFence, pipeX[i], pipeY[i] + 680);
+  pipeX[i]-= 4;
+  if(pipeX[i] < -200)
+  {
+   pipeX[i] = width; 
+  }
+  if(kx > (pipeX[i]-100) && kx < pipeX[i] + 78)
+  {
+    if(!(ky > pipeY[i] + 300 && ky < pipeY[i] + 300 + 380))
+      {
+        gameState = 1;
       }
-
-
-
-      void draw(){
-          background(155,0,0);
-            for(int i = 0; i < ball.length; i++){
-                ball[i].display();
-            }
-
+      else if(kx ==pipeX[i] || kx == pipeX[i] + 1)
+      {
+       score++; 
       }
-      class Ball{
+  }
+ } 
+}
+ 
 
-          float x;
-          float y;
-          float Vx;
-          float Vy;
-          float r,g,b,o;
-          float d;
 
-          Ball(){
-              x = random(width);
-              y = random(height);
-              Vx = random(-5,5);
-              Vy = random(-5,5);
-              r = random(255);
-              g = random(255);
-              b = random(255);
-              o = random(255);
-              d = random(30) + 15;
-          }
 
-          void display(){
-              fill(r,g,b,o);
-              ellipse(x,y,d,d);
-              x += Vx;
-              y += Vy;
-              if(x > width || x < 0){
-                  Vx *= -1;
-              }
-              if(y > height || y < 0){
-                  Vy *= -1;
-              }
-          }
-    }
+void sheep()
+{
+  image(sheep, kx, ky);
+  ky = ky + Vky; 
+  Vky = Vky + g;
+  if(ky > height || ky < 0)
+  {
+    text("OH NO!!!! THE SHEEP FELL OFF THE SCREEN...", 40,34);
+    gameState=1;
+  }
+  
+}
+
+void mousePressed()
+{
+  Vky = -15;
+}
+void setBg()
+{
+  image(bg, bgx, bgy);
+  image(bg, bgx +bg.width, bgy);
+  bgx = bgx - 1;
+  if(bgx < -bg.width)
+  {
+    bgx = 0;
+  }
+}
 
 
     </script>
