@@ -21,10 +21,14 @@
       void setup()
       {
         size(800,600);
-        bg = loadImage("Documents/Processing/img/bg.png");
-        sheep = loadImage("Documents/Processing/img/sheep.png");
-        botFence = loadImage("Documents/Processing/img/botFence.png");
-        topFence = loadImage("Documents/Processing/img/topFence.png");
+        String bgURL = "https://raw.githubusercontent.com/tshaner/Flappy-Sheep/master/bg.png";
+        String topFenceURL = "https://raw.githubusercontent.com/tshaner/Flappy-Sheep/master/topFence.png";
+        String botFenceURL = "https://raw.githubusercontent.com/tshaner/Flappy-Sheep/master/botFence.png";
+        String sheepURL = "https://raw.githubusercontent.com/tshaner/Flappy-Sheep/master/sheep.png";
+        bg = loadImage(bgURL,"png");
+        sheep = loadImage(sheepURL, "png");
+        botFence = loadImage(botFenceURL, "png");
+        topFence = loadImage(topFenceURL, "png");
         kx = 100;
         ky = 50;
         g = 1; //gravity
