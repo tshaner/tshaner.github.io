@@ -709,7 +709,7 @@ module.exports = function finalizeProcessing(Processing, options) {
       }
     };
 
-    this.sourceCode = undefined;
+    //this.sourceCode = undefined;
     this.attach = function(processing) {
       // either attachFunction or sourceCode must be present on attach
       if(typeof this.attachFunction === "function") {
