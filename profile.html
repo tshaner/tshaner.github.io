@@ -21,7 +21,7 @@
       
       /* @pjs preload="/data/bg.png,/data/topFence.png,/data/botFence.png,/data/sheep.png"; */
 
-      void setup()
+      void setup(){
         size(800,600);
         bg = loadImage("/data/bg.png");
         sheep = loadImage("/data/sheep.png");
@@ -47,7 +47,7 @@
         else if(gameState==0){
           setBg(); 
           setPipes();
-          sheep();
+          sheep1();
           score();
         }
         else{
@@ -86,7 +86,7 @@
        } 
       }
       
-      void sheep(){
+      void sheep1(){
         image(sheep, kx, ky);
         ky = ky + Vky; 
         Vky = Vky + g;
