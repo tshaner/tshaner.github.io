@@ -13,20 +13,22 @@
     <p>Processing demo</p>
     
     <script type="text/processing">
-    
+
+      /* @pjs preload="bg.jpg,topFence.png,botFence.png,sheep.png"; */
+      
       PImage bg, sheep, topFence, botFence;
       int bgx, bgy, kx, ky, g, Vky;
       int[] pipeX, pipeY; //Declare two arrays
       int gameState, score;
       
-      /* @pjs preload="bg.jpg,topFence.png,botFence.png,sheep.png"; */
+      
 
       void setup(){
         size(800,600);
-        bg = loadImage("../bg.png");
-        sheep = loadImage("../sheep.png");
-        botFence = loadImage("../botFence.png");
-        topFence = loadImage("../topFence.png");
+        bg = loadImage("bg.png");
+        sheep = loadImage("sheep.png");
+        botFence = loadImage("botFence.png");
+        topFence = loadImage("topFence.png");
         kx = 100;
         ky = 50;
         g = 1; //gravity
