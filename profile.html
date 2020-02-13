@@ -48,12 +48,18 @@
           setBg(); 
           setPipes();
           sheep1();
-          score();
+          score1();
         }
         else{
           text("YOU LOSE", 20,100);
         }
       }
+      
+      void score1(){
+        fill(0);
+        textSize(32);
+        text("Score: " + score, width - 170, 40); 
+       }
       
       void startScreen(){
         image(bg, 0,0);
